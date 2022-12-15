@@ -1,5 +1,108 @@
 import { tokens } from "../theme";
 
+export const mockLineData = [
+  {
+    id: "MVCH IDN",
+    color: tokens("dark").greenAccent[500],
+    data: [
+      {
+        x: '2012',
+        y: 101,
+      },
+      {
+        x: '2013',
+        y: 75,
+      },
+      {
+        x: '2014',
+        y: 36,
+      },
+      {
+        x: '2015',
+        y: 216,
+      },
+      {
+        x: '2016',
+        y: 35,
+      },
+      {
+        x: '2017',
+        y: 236,
+      },
+      {
+        x: '2018',
+        y: 88,
+      },
+      {
+        x: '2019',
+        y: 232,
+      },
+      {
+        x: '2020',
+        y: 281,
+      },
+      {
+        x: '2021',
+        y: 1,
+      },
+      {
+        x: '2022',
+        y: 35,
+      },
+    ],
+  },
+  {
+    id: "MVCH USA",
+    color: tokens("dark").blueAccent[300],
+    data: [
+      {
+        x: '2012',
+        y: 212,
+      },
+      {
+        x: '2013',
+        y: 190,
+      },
+      {
+        x: '2014',
+        y: 270,
+      },
+      {
+        x: '2015',
+        y: 9,
+      },
+      {
+        x: '2016',
+        y: 75,
+      },
+      {
+        x: '2017',
+        y: 175,
+      },
+      {
+        x: '2018',
+        y: 33,
+      },
+      {
+        x: '2019',
+        y: 189,
+      },
+      {
+        x: '2020',
+        y: 97,
+      },
+      {
+        x: '2021',
+        y: 87,
+      },
+      {
+        x: '2022',
+        y: 299,
+      },
+    ],
+  },
+];
+
 export const mockDataTeam = [
   {
     id: 1,
@@ -430,170 +533,7 @@ export const mockPieData = [
   },
 ];
 
-export const mockLineData = [
-  {
-    id: "japan",
-    color: tokens("dark").greenAccent[500],
-    data: [
-      {
-        x: "plane",
-        y: 101,
-      },
-      {
-        x: "helicopter",
-        y: 75,
-      },
-      {
-        x: "boat",
-        y: 36,
-      },
-      {
-        x: "train",
-        y: 216,
-      },
-      {
-        x: "subway",
-        y: 35,
-      },
-      {
-        x: "bus",
-        y: 236,
-      },
-      {
-        x: "car",
-        y: 88,
-      },
-      {
-        x: "moto",
-        y: 232,
-      },
-      {
-        x: "bicycle",
-        y: 281,
-      },
-      {
-        x: "horse",
-        y: 1,
-      },
-      {
-        x: "skateboard",
-        y: 35,
-      },
-      {
-        x: "others",
-        y: 14,
-      },
-    ],
-  },
-  {
-    id: "france",
-    color: tokens("dark").blueAccent[300],
-    data: [
-      {
-        x: "plane",
-        y: 212,
-      },
-      {
-        x: "helicopter",
-        y: 190,
-      },
-      {
-        x: "boat",
-        y: 270,
-      },
-      {
-        x: "train",
-        y: 9,
-      },
-      {
-        x: "subway",
-        y: 75,
-      },
-      {
-        x: "bus",
-        y: 175,
-      },
-      {
-        x: "car",
-        y: 33,
-      },
-      {
-        x: "moto",
-        y: 189,
-      },
-      {
-        x: "bicycle",
-        y: 97,
-      },
-      {
-        x: "horse",
-        y: 87,
-      },
-      {
-        x: "skateboard",
-        y: 299,
-      },
-      {
-        x: "others",
-        y: 251,
-      },
-    ],
-  },
-  {
-    id: "us",
-    color: tokens("dark").redAccent[200],
-    data: [
-      {
-        x: "plane",
-        y: 191,
-      },
-      {
-        x: "helicopter",
-        y: 136,
-      },
-      {
-        x: "boat",
-        y: 91,
-      },
-      {
-        x: "train",
-        y: 190,
-      },
-      {
-        x: "subway",
-        y: 211,
-      },
-      {
-        x: "bus",
-        y: 152,
-      },
-      {
-        x: "car",
-        y: 189,
-      },
-      {
-        x: "moto",
-        y: 152,
-      },
-      {
-        x: "bicycle",
-        y: 8,
-      },
-      {
-        x: "horse",
-        y: 197,
-      },
-      {
-        x: "skateboard",
-        y: 107,
-      },
-      {
-        x: "others",
-        y: 170,
-      },
-    ],
-  },
-];
+
 
 export const mockGeographyData = [
   {

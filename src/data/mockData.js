@@ -1,8 +1,88 @@
 import { tokens } from "../theme";
 
+export const mockBarDataAnnualAdmittedPatients = [
+  {
+    'year': '2012',
+    'USA': 530,
+    'USAColor': 'hsl(128, 70%, 50%)',
+    'IDN': 510,
+    'IDNColor': 'hsl(169, 70%, 50%)'
+  },
+  {
+    'year': '2013',
+    'USA': 530,
+    'USAColor': 'hsl(128, 70%, 50%)',
+    'IDN': 510,
+    'IDNColor': 'hsl(169, 70%, 50%)'
+  },
+  {
+    'year': '2014',
+    'USA': 530,
+    'USAColor': 'hsl(128, 70%, 50%)',
+    'IDN': 510,
+    'IDNColor': 'hsl(169, 70%, 50%)'
+  },
+  {
+    'year': '2015',
+    'USA': 530,
+    'USAColor': 'hsl(128, 70%, 50%)',
+    'IDN': 510,
+    'IDNColor': 'hsl(169, 70%, 50%)'
+  },
+  {
+    'year': '2016',
+    'USA': 530,
+    'USAColor': 'hsl(128, 70%, 50%)',
+    'IDN': 510,
+    'IDNColor': 'hsl(169, 70%, 50%)'
+  },
+  {
+    'year': '2017',
+    'USA': 530,
+    'USAColor': 'hsl(128, 70%, 50%)',
+    'IDN': 510,
+    'IDNColor': 'hsl(169, 70%, 50%)'
+  },
+  {
+    'year': '2018',
+    'USA': 530,
+    'USAColor': 'hsl(128, 70%, 50%)',
+    'IDN': 510,
+    'IDNColor': 'hsl(169, 70%, 50%)'
+  },
+  {
+    'year': '2019',
+    'USA': 530,
+    'USAColor': 'hsl(128, 70%, 50%)',
+    'IDN': 510,
+    'IDNColor': 'hsl(169, 70%, 50%)'
+  },
+  {
+    'year': '2020',
+    'USA': 530,
+    'USAColor': 'hsl(128, 70%, 50%)',
+    'IDN': 510,
+    'IDNColor': 'hsl(169, 70%, 50%)'
+  },
+  {
+    'year': '2021',
+    'USA': 530,
+    'USAColor': 'hsl(128, 70%, 50%)',
+    'IDN': 510,
+    'IDNColor': 'hsl(169, 70%, 50%)'
+  },
+  {
+    'year': '2022',
+    'USA': 530,
+    'USAColor': 'hsl(128, 70%, 50%)',
+    'IDN': 510,
+    'IDNColor': 'hsl(169, 70%, 50%)'
+  }
+]
+
 export const mockLineData = [
   {
-    id: "MVCH IDN",
+    'id': "MVCH IDN",
     color: tokens("dark").greenAccent[500],
     data: [
       {
@@ -102,6 +182,164 @@ export const mockLineData = [
     ],
   },
 ];
+
+export const mockMonthly2022Revenues = [
+  {
+    id: 'MVCH IDN',
+    color: tokens("dark").greenAccent[500],
+    data: [
+      {
+        x: 'January',
+        y: 2
+      },
+      {
+        x: 'February',
+        y: 3
+      },
+      {
+        x: 'March',
+        y: 5
+      },
+      {
+        x: 'April',
+        y: 6
+      },
+      {
+        x: 'May',
+        y: 4
+      },
+      {
+        x: 'June',
+        y: 6
+      },
+      {
+        x: 'July',
+        y: 3
+      },
+      {
+        x: 'August',
+        y: 2
+      },
+      {
+        x: 'September',
+        y: 3
+      },
+      {
+        x: 'October',
+        y: 1
+      },
+      {
+        x: 'November',
+        y: 2
+      },
+      {
+        x: 'December',
+        y: 5
+      }
+    ]
+  },
+  {
+    id: 'MVCH USA',
+    color: tokens("dark").blueAccent[500],
+    data: [
+      {
+        x: 'January',
+        y: 5
+      },
+      {
+        x: 'February',
+        y: 3
+      },
+      {
+        x: 'March',
+        y: 5
+      },
+      {
+        x: 'April',
+        y: 9
+      },
+      {
+        x: 'May',
+        y: 1
+      },
+      {
+        x: 'June',
+        y: 3
+      },
+      {
+        x: 'July',
+        y: 8
+      },
+      {
+        x: 'August',
+        y: 3
+      },
+      {
+        x: 'September',
+        y: 9
+      },
+      {
+        x: 'October',
+        y: 1
+      },
+      {
+        x: 'November',
+        y: 3
+      },
+      {
+        x: 'December',
+        y: 2
+      }
+    ]
+  }
+]
+
+export const mockQuarterly2022Revenues = [
+  {
+    id: 'MVCH IDN',
+    color: tokens("dark").greenAccent[500],
+    data: [
+      {
+        x: 'Q1',
+        y: 10
+      },
+      {
+        x: 'Q2',
+        y: 8
+      },
+      {
+        x: 'Q3',
+        y: 7
+      },
+      {
+        x: 'Q4',
+        y: 9
+      },
+    ]
+  },
+  {
+    id: 'MVCH USA',
+    color: tokens("dark").blueAccent[500],
+    data: [
+      {
+        x: 'Q1',
+        y: 13
+      },
+      {
+        x: 'Q2',
+        y: 15
+      },
+      {
+        x: 'Q3',
+        y: 12
+      },
+      {
+        x: 'Q4',
+        y: 11
+      },
+    ]
+  }
+]
 
 export const mockDataTeam = [
   {

@@ -1,35 +1,34 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { annualPatientAdmissionsByState } from "../../data/mockDataTable";
+import { carecenters } from "../../data/mockDataTable";
 import Header from "../../components/Header";
 
-const PatientAdmissionsByState = () => {
+const CareCenters = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
-    { field: "year", headerName: "Year" },
+    { field: "care_center_id", headerName: "Care Center ID" },
     {
       field: "country",
       headerName: "Country",
       flex: 1,
     },
     {
-      field: "state",
-      headerName: "State or Province",
+      field: "care_center_name",
+      headerName: "Care Center Name",
       flex: 1,
     },
     {
-      field: "total_admitted_patients",
-      headerName: "Total Admitted Patients",
-      type: "number",
+      field: "address",
+      headerName: "Address",
       flex: 1,
     }
   ];
 
   return (
     <Box m="20px">
-      <Header title="Patient Admissions by State or Province" subtitle="Annual Total Admitted Patients" />
+      <Header title="MVCH's Care Centers" subtitle="List of Care Centers" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -62,10 +61,10 @@ const PatientAdmissionsByState = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={annualPatientAdmissionsByState} columns={columns} components={{ Toolbar: GridToolbar }}/>
+        <DataGrid checkboxSelection rows={carecenters} columns={columns} components={{ Toolbar: GridToolbar }}/>
       </Box>
     </Box>
   );
 };
 
-export default PatientAdmissionsByState;
+export default CareCenters;

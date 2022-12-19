@@ -3,7 +3,7 @@ import { ResponsiveBar } from "@nivo/bar";
 import { tokens } from "../theme";
 // import { mockBarData as data } from "../data/mockData";
 
-const BarChart = ({ isDashboard = false , data}) => {
+const BarChart = ({ isDashboard = false , data, keys}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -39,7 +39,7 @@ const BarChart = ({ isDashboard = false , data}) => {
           },
         },
       }}
-      keys={["USA", "IDN"]}
+      keys={keys}
       indexBy="year"
       groupMode="grouped"
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}

@@ -1,10 +1,10 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { annualPatientAdmissionsByState } from "../../data/mockDataTable";
+import { annualPatientAdmissionsByCC } from "../../data/mockDataTable";
 import Header from "../../components/Header";
 
-const PatientAdmissionsByState = () => {
+const PatientAdmissionsByCareCenter = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
@@ -15,8 +15,8 @@ const PatientAdmissionsByState = () => {
       flex: 1,
     },
     {
-      field: "state",
-      headerName: "State or Province",
+      field: "care_center_id",
+      headerName: "Care Center ID",
       flex: 1,
     },
     {
@@ -29,7 +29,7 @@ const PatientAdmissionsByState = () => {
 
   return (
     <Box m="20px">
-      <Header title="Patient Admissions by State or Province" subtitle="Annual Total Admitted Patients" />
+      <Header title="Patient Admissions by Care Center" subtitle="Annual Total Admitted Patients" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -62,10 +62,10 @@ const PatientAdmissionsByState = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={annualPatientAdmissionsByState} columns={columns} components={{ Toolbar: GridToolbar }}/>
+        <DataGrid checkboxSelection rows={annualPatientAdmissionsByCC} columns={columns} components={{ Toolbar: GridToolbar }}/>
       </Box>
     </Box>
   );
 };
 
-export default PatientAdmissionsByState;
+export default PatientAdmissionsByCareCenter;

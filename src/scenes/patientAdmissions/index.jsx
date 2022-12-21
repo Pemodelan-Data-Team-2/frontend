@@ -1,7 +1,7 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { patientAdmissions } from "../../data/mockDataTable";
+// import { patientAdmissions } from "../../data/mockDataTable";
 import Header from "../../components/Header";
 import axios from "axios";
 import { React, useState, useEffect } from 'react';

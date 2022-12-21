@@ -48,6 +48,10 @@ const Dashboard = () => {
       </Box>
     </Box>
   )
+  else {
+    data.annualRevenuesGeneratedFromPatientAdmissions[0].color = tokens("dark").greenAccent[500]
+    data.annualRevenuesGeneratedFromPatientAdmissions[1].color = tokens("dark").blueAccent[300]
+  }
 
   return (
     <Box m="20px">
@@ -205,8 +209,8 @@ const Dashboard = () => {
             </Box>
           </Box>
           <Box height="250px" m="-20px 0 0 0">
-            {data.annualRevenuesGeneratedFromPatientAdmissions[0].color = tokens("dark").greenAccent[500]}
-            {data.annualRevenuesGeneratedFromPatientAdmissions[1].color = tokens("dark").blueAccent[300]}
+            {/* {data.annualRevenuesGeneratedFromPatientAdmissions[0].color = tokens("dark").greenAccent[500]}
+            {data.annualRevenuesGeneratedFromPatientAdmissions[1].color = tokens("dark").blueAccent[300]} */}
             <LineChart isDashboard={true} data={data.annualRevenuesGeneratedFromPatientAdmissions} />
           </Box>
         </Box>

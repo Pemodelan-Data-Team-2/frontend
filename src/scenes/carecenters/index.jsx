@@ -1,10 +1,27 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { carecenters } from "../../data/mockDataTable";
+// import { carecenters } from "../../data/mockDataTable";
 import Header from "../../components/Header";
+import axios from "axios";
+import { React, useState, useEffect } from 'react';
 
 const CareCenters = () => {
+
+  const [data, setData] = useState({
+    data: [],
+    DataisLoaded: false
+  })
+
+  useEffect(() => {
+    axios.get(`/data/carecenters`).then((response) => {
+      setData({
+        data: response.data.data,
+        DataisLoaded: true
+      })
+    });
+  }, []);
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
@@ -25,6 +42,17 @@ const CareCenters = () => {
       flex: 1,
     }
   ];
+
+  console.log(data)
+  const DataisLoaded = data.DataisLoaded;
+  if (!DataisLoaded) return (
+    <Box m="20px">
+      <Header title="MVCH's Care Centers" subtitle="List of Care Centers" />
+      <Typography>
+        Loading...
+      </Typography>
+    </Box>
+  )
 
   return (
     <Box m="20px">
@@ -61,7 +89,7 @@ const CareCenters = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={carecenters} columns={columns} components={{ Toolbar: GridToolbar }}/>
+        <DataGrid checkboxSelection rows={data.data} columns={columns} components={{ Toolbar: GridToolbar }}/>
       </Box>
     </Box>
   );

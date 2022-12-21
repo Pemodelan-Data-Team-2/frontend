@@ -2,6 +2,7 @@
   "name": "react-admin",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://if-5070-0002.et.r.appspot.com",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -23,6 +24,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.2.1",
     "chart.js": "^3.9.1",
     "formik": "^2.2.9",
     "react": "^18.2.0",

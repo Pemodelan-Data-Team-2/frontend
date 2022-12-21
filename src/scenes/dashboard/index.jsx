@@ -4,13 +4,50 @@ import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
 import BarChart from "../../components/BarChart";
-import { annualRevenuesLineChart } from "../../data/mockDataLineChart";
-import { roomsCountByCareCenter } from '../../data/mockDataTable'; 
-import { annualPatientAdmissionsByRoomType, annualPatientAdmissionsByCountry } from '../../data/mockDataBarChart';
+import { React, useState, useEffect } from 'react';
+import axios from 'axios';
+// import { annualRevenuesLineChart } from "../../data/mockDataLineChart";
+// import { roomsCountByCareCenter } from '../../data/mockDataTable'; 
+// import { annualPatientAdmissionsByRoomType, annualPatientAdmissionsByCountry } from '../../data/mockDataBarChart';
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  // Consume data from API
+  const [data, setData] = useState({
+    annualRevenuesGeneratedFromPatientAdmissions: [],
+    annualTotalAdmittedPatientsByCountry: [],
+    annualTotalAdmittedPatientsByRoomType: [],
+    roomsCountByCareCenter: [],
+    DataisLoaded: false
+  })
+
+  useEffect(() => {
+    axios.get(`/dashboard/data`).then((response) => {
+      setData({
+        annualRevenuesGeneratedFromPatientAdmissions: response.data.annualRevenuesGeneratedFromPatientAdmissions,
+        annualTotalAdmittedPatientsByCountry: response.data.annualTotalAdmittedPatientsByCountry,
+        annualTotalAdmittedPatientsByRoomType: response.data.annualTotalAdmittedPatientsByRoomType,
+        roomsCountByCareCenter: response.data.roomsCountByCareCenter,
+        DataisLoaded: true
+      })
+    });
+  }, []);
+
+  console.log(data)
+  const DataisLoaded = data.DataisLoaded;
+  if (!DataisLoaded) return (
+    <Box m="20px">
+      {/* HEADER */}
+      <Box display="flex" justifyContent="space-between" alignItems="center">
+        <Header title="HOSPITAL OCCUPANCY DASHBOARD" subtitle="Welcome to your dashboard" />
+        <Typography>
+          Loading...
+        </Typography>
+      </Box>
+    </Box>
+  )
 
   return (
     <Box m="20px">
@@ -56,7 +93,7 @@ const Dashboard = () => {
             Annual Total Admitted Patients by Room Type
           </Typography>
           <Box height="250px" mt="-20px">
-            <BarChart isDashboard={true} data={annualPatientAdmissionsByRoomType} keys={['Class I', 'Class II', 'Class III', 'VIP', 'VVIP']}/>
+            <BarChart isDashboard={true} data={data.annualTotalAdmittedPatientsByRoomType} keys={['Class I', 'Class II', 'Class III', 'VIP', 'VVIP']}/>
           </Box>
         </Box>
 
@@ -74,7 +111,7 @@ const Dashboard = () => {
             Annual Total Admitted Patients
           </Typography>
           <Box height="250px" mt="-20px">
-            <BarChart isDashboard={true} data={annualPatientAdmissionsByCountry} keys={["USA", "IDN"]}/>
+            <BarChart isDashboard={true} data={data.annualTotalAdmittedPatientsByCountry} keys={["USA", "IDN"]}/>
           </Box>
         </Box>
 
@@ -97,7 +134,7 @@ const Dashboard = () => {
               Rooms Count by Care Center
             </Typography>
           </Box>
-          {roomsCountByCareCenter.map((roomCount, i) => (
+          {data.roomsCountByCareCenter.map((roomCount, i) => (
             <Box
               key={`${roomCount.care_center_id}-${i}`}
               display="flex"
@@ -118,7 +155,7 @@ const Dashboard = () => {
                   {roomCount.care_center_name}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{roomCount.country}</Box>
+              {/* <Box color={colors.grey[100]}>{roomCount.country}</Box> */}
               <Box
                 backgroundColor={colors.greenAccent[500]}
                 p="5px 10px"
@@ -168,7 +205,9 @@ const Dashboard = () => {
             </Box>
           </Box>
           <Box height="250px" m="-20px 0 0 0">
-            <LineChart isDashboard={true} data={annualRevenuesLineChart} />
+            {data.annualRevenuesGeneratedFromPatientAdmissions[0].color = tokens("dark").greenAccent[500]}
+            {data.annualRevenuesGeneratedFromPatientAdmissions[1].color = tokens("dark").blueAccent[300]}
+            <LineChart isDashboard={true} data={data.annualRevenuesGeneratedFromPatientAdmissions} />
           </Box>
         </Box>
 

@@ -1,10 +1,27 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { annualPatientAdmissionsByCC } from "../../data/mockDataTable";
+// import { annualPatientAdmissionsByCC } from "../../data/mockDataTable";
 import Header from "../../components/Header";
+import axios from "axios";
+import { React, useState, useEffect } from 'react';
 
 const PatientAdmissionsByCareCenter = () => {
+
+  const [data, setData] = useState({
+    statistics: [],
+    DataisLoaded: false
+  })
+
+  useEffect(() => {
+    axios.get(`/statistics/pa-counts-by-carecenter`).then((response) => {
+      setData({
+        statistics: response.data.statistics,
+        DataisLoaded: true
+      })
+    });
+  }, []);
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
@@ -26,6 +43,17 @@ const PatientAdmissionsByCareCenter = () => {
       flex: 1,
     }
   ];
+
+  console.log(data)
+  const DataisLoaded = data.DataisLoaded;
+  if (!DataisLoaded) return (
+    <Box m="20px">
+      <Header title="Patient Admissions by Care Center" subtitle="Annual Total Admitted Patients" />
+      <Typography>
+        Loading...
+      </Typography>
+    </Box>
+  )
 
   return (
     <Box m="20px">
@@ -62,7 +90,7 @@ const PatientAdmissionsByCareCenter = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={annualPatientAdmissionsByCC} columns={columns} components={{ Toolbar: GridToolbar }}/>
+        <DataGrid checkboxSelection rows={data.statistics} columns={columns} components={{ Toolbar: GridToolbar }}/>
       </Box>
     </Box>
   );

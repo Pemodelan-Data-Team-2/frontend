@@ -3,8 +3,25 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { patientAdmissions } from "../../data/mockDataTable";
 import Header from "../../components/Header";
+import axios from "axios";
+import { React, useState, useEffect } from 'react';
 
 const PatientAdmissions = () => {
+  
+  const [data, setData] = useState({
+    data: [],
+    DataisLoaded: false
+  })
+
+  useEffect(() => {
+    axios.get(`/data/patient-admissions-by-country`).then((response) => {
+      setData({
+        data: response.data.data,
+        DataisLoaded: true
+      })
+    });
+  }, []);
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
@@ -63,9 +80,20 @@ const PatientAdmissions = () => {
     }
   ];
 
+  console.log(data)
+  const DataisLoaded = data.DataisLoaded;
+  if (!DataisLoaded) return (
+    <Box m="20px">
+      <Header title="Patient Admissions" subtitle="Patient Admissions by Country" />
+      <Typography>
+        Loading...
+      </Typography>
+    </Box>
+  )
+
   return (
     <Box m="20px">
-      <Header title="Patient Admissions" subtitle="Annual Total Admitted Patients" />
+      <Header title="Patient Admissions" subtitle="Patient Admissions by Country" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -98,7 +126,7 @@ const PatientAdmissions = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={patientAdmissions} columns={columns} components={{ Toolbar: GridToolbar }}/>
+        <DataGrid checkboxSelection rows={data.data} columns={columns} components={{ Toolbar: GridToolbar }}/>
       </Box>
     </Box>
   );

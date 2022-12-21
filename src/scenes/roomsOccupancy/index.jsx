@@ -1,30 +1,64 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { roomsOccupancy } from "../../data/mockDataTable";
+import { bedsAvailability } from "../../data/mockDataTable";
 import Header from "../../components/Header";
+import axios from 'axios';
+import { React, useState, useEffect } from 'react';
 
 const RoomsOccupancy = () => {
+
+  const [data, setData] = useState({
+    statistics: [],
+    DataisLoaded: false
+  })
+
+  useEffect(() => {
+    axios.get(`/statistics/beds-availability`).then((response) => {
+      setData({
+        statistics: response.data.statistics,
+        DataisLoaded: true
+      })
+    });
+    
+  }, []);
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
-    { field: "room_id", headerName: "Room ID" },
+    { field: "country", headerName: "Country"},
+    { 
+      field: "room_id", 
+      headerName: "Room ID" ,
+      flex: 1,
+    },
     {
       field: "bed_id",
       headerName: "Bed ID",
       flex: 1,
     },
     {
-        field: "care_center_id",
-        headerName: "Care Center ID",
-        flex: 1,
+      field: "care_center_id",
+      headerName: "Care Center ID",
+      flex: 1,
     },
     {
-        field: "status",
-        headerName: "Status",
-        flex: 1,
+      field: "status",
+      headerName: "Status",
+      flex: 1,
     },
   ];
+
+  console.log(data)
+  const DataisLoaded = data.DataisLoaded;
+  if (!DataisLoaded) return (
+    <Box m="20px">
+      <Header title="Current MVCH's Rooms Occupancy" subtitle={"Current date: " + new Date().toLocaleString("en-US", {dateStyle: 'medium'}) + ""} />
+      <Typography>
+        Loading...
+      </Typography>
+    </Box>
+  )
 
   return (
     <Box m="20px">
@@ -61,7 +95,7 @@ const RoomsOccupancy = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={roomsOccupancy} columns={columns} components={{ Toolbar: GridToolbar }}/>
+        <DataGrid checkboxSelection rows={data.statistics} columns={columns} components={{ Toolbar: GridToolbar }}/>
       </Box>
     </Box>
   );

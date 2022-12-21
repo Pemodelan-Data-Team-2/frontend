@@ -1,50 +1,35 @@
 import { Box, Typography, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataInvoices } from "../../data/mockData";
+import { annualPatientAdmissionsByCC } from "../../data/mockDataTable";
 import Header from "../../components/Header";
 
-const Invoices = () => {
+const PatientAdmissionsByCareCenter = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
-    { field: "id", headerName: "ID" },
+    { field: "year", headerName: "Year" },
     {
-      field: "name",
-      headerName: "Name",
-      flex: 1,
-      cellClassName: "name-column--cell",
-    },
-    {
-      field: "phone",
-      headerName: "Phone Number",
+      field: "country",
+      headerName: "Country",
       flex: 1,
     },
     {
-      field: "email",
-      headerName: "Email",
+      field: "care_center_id",
+      headerName: "Care Center ID",
       flex: 1,
     },
     {
-      field: "cost",
-      headerName: "Cost",
+      field: "total_admitted_patients",
+      headerName: "Total Admitted Patients",
+      type: "number",
       flex: 1,
-      renderCell: (params) => (
-        <Typography color={colors.greenAccent[500]}>
-          ${params.row.cost}
-        </Typography>
-      ),
-    },
-    {
-      field: "date",
-      headerName: "Date",
-      flex: 1,
-    },
+    }
   ];
 
   return (
     <Box m="20px">
-      <Header title="INVOICES" subtitle="List of Invoice Balances" />
+      <Header title="Patient Admissions by Care Center" subtitle="Annual Total Admitted Patients" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -72,12 +57,15 @@ const Invoices = () => {
           "& .MuiCheckbox-root": {
             color: `${colors.greenAccent[200]} !important`,
           },
+          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+            color: `${colors.grey[100]} !important`,
+          },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataInvoices} columns={columns} />
+        <DataGrid checkboxSelection rows={annualPatientAdmissionsByCC} columns={columns} components={{ Toolbar: GridToolbar }}/>
       </Box>
     </Box>
   );
 };
 
-export default Invoices;
+export default PatientAdmissionsByCareCenter;

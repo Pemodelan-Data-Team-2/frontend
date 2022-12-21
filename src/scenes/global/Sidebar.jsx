@@ -148,6 +148,13 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            <Item
+              title="Current Rooms Occupancy"
+              to="/roomsOccupancy"
+              icon={<QueryStatsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
             <Typography
               variant="h6"
               color={colors.grey[300]}

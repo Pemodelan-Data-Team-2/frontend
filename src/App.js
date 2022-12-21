@@ -9,6 +9,7 @@ import PatientAdmissionsByRoomType from "./scenes/patientAdmissionsByRoomType";
 import CareCenters from "./scenes/carecenters";
 import PatientAdmissions from "./scenes/patientAdmissions";
 import PatientAdmissionsByCareCenter from "./scenes/patientAdmissionsByCareCenter";
+import RoomsOccupancy from "./scenes/roomsOccupancy";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -28,6 +29,7 @@ function App() {
               <Route path="/patientAdmissionsByRoomType" element={<PatientAdmissionsByRoomType />} />
               <Route path="/carecenters" element={<CareCenters />} />
               <Route path="/patientAdmissions" element={<PatientAdmissions />} />
+              <Route path="/roomsOccupancy" element={<RoomsOccupancy />} />
             </Routes>
           </main>
         </div>

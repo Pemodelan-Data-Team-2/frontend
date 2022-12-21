@@ -274,3 +274,10 @@ export const annualPatientAdmissionsByCCIDN = [
 ]
 
 export const annualPatientAdmissionsByCC = annualPatientAdmissionsByCCUSA.concat(annualPatientAdmissionsByCCIDN)
+
+export const roomsOccupancy = [
+    {id: 1, room_id: 'rid', bed_id: 'bid', care_center_id: 'ccid', status: 'Available'},
+    {id: 2, room_id: 'rid', bed_id: 'bid', care_center_id: 'ccid', status: 'Occupied'},
+    {id: 3, room_id: 'rid', bed_id: 'bid', care_center_id: 'ccid', status: 'Available'},
+    {id: 4, room_id: 'rid', bed_id: 'bid', care_center_id: 'ccid', status: 'Occupied'}
+]

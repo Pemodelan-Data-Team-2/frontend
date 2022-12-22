@@ -14,7 +14,7 @@ const PatientAdmissionsByCareCenter = () => {
   })
 
   useEffect(() => {
-    axios.get(`/statistics/pa-counts-by-carecenter`).then((response) => {
+    axios.get(`https://if-5070-0002.et.r.appspot.com/statistics/pa-counts-by-carecenter`).then((response) => {
       setData({
         statistics: response.data.statistics,
         DataisLoaded: true

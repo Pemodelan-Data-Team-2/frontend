@@ -14,7 +14,7 @@ const PatientAdmissions = () => {
   })
 
   useEffect(() => {
-    axios.get(`/data/patient-admissions-by-country`).then((response) => {
+    axios.get(`https://if-5070-0002.et.r.appspot.com/data/patient-admissions-by-country`).then((response) => {
       setData({
         data: response.data.data,
         DataisLoaded: true

@@ -14,7 +14,7 @@ const CareCenters = () => {
   })
 
   useEffect(() => {
-    axios.get(`/data/carecenters`).then((response) => {
+    axios.get(`https://if-5070-0002.et.r.appspot.com/data/carecenters`).then((response) => {
       setData({
         data: response.data.data,
         DataisLoaded: true

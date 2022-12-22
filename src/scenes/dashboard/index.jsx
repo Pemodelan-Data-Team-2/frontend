@@ -24,7 +24,7 @@ const Dashboard = () => {
   })
 
   useEffect(() => {
-    axios.get(`/dashboard/data`).then((response) => {
+    axios.get(`https://if-5070-0002.et.r.appspot.com/dashboard/data`).then((response) => {
       setData({
         annualRevenuesGeneratedFromPatientAdmissions: response.data.annualRevenuesGeneratedFromPatientAdmissions,
         annualTotalAdmittedPatientsByCountry: response.data.annualTotalAdmittedPatientsByCountry,

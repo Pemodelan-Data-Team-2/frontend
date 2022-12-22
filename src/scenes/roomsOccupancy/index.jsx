@@ -14,7 +14,7 @@ const RoomsOccupancy = () => {
   })
 
   useEffect(() => {
-    axios.get(`/statistics/beds-availability`).then((response) => {
+    axios.get(`https://if-5070-0002.et.r.appspot.com/statistics/beds-availability`).then((response) => {
       setData({
         statistics: response.data.statistics,
         DataisLoaded: true

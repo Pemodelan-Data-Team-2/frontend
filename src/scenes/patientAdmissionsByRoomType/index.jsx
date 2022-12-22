@@ -14,7 +14,7 @@ const PatientAdmissionsByRoomType = () => {
   })
 
   useEffect(() => {
-    axios.get(`/statistics/pa-counts-by-room-type`).then((response) => {
+    axios.get(`https://if-5070-0002.et.r.appspot.com/statistics/pa-counts-by-room-type`).then((response) => {
       setData({
         statistics: response.data.statistics,
         DataisLoaded: true

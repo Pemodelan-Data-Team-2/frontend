@@ -13,8 +13,11 @@ const PatientAdmissionsByRoomType = () => {
     DataisLoaded: false
   })
 
+  // const addresses = ['http://127.0.0.1:5000', 'https://backendv2-dot-if-5070-0002.et.r.appspot.com']
+
   useEffect(() => {
-    axios.get(`https://if-5070-0002.et.r.appspot.com/statistics/pa-counts-by-room-type`).then((response) => {
+    const addresses = ['http://127.0.0.1:5000', 'https://backendv2-dot-if-5070-0002.et.r.appspot.com']
+    axios.get(`${addresses[1]}/statistics/pa-counts-by-room-type`).then((response) => {
       setData({
         statistics: response.data.statistics,
         DataisLoaded: true

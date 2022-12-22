@@ -23,8 +23,11 @@ const Dashboard = () => {
     DataisLoaded: false
   })
 
+  // const addresses = ['http://127.0.0.1:5000', 'https://backendv2-dot-if-5070-0002.et.r.appspot.com']
+
   useEffect(() => {
-    axios.get(`https://if-5070-0002.et.r.appspot.com/dashboard/data`).then((response) => {
+    const addresses = ['http://127.0.0.1:5000', 'https://backendv2-dot-if-5070-0002.et.r.appspot.com']
+    axios.get(`${addresses[1]}/dashboard/data`).then((response) => {
       setData({
         annualRevenuesGeneratedFromPatientAdmissions: response.data.annualRevenuesGeneratedFromPatientAdmissions,
         annualTotalAdmittedPatientsByCountry: response.data.annualTotalAdmittedPatientsByCountry,

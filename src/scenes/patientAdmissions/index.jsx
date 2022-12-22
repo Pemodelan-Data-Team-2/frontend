@@ -13,8 +13,11 @@ const PatientAdmissions = () => {
     DataisLoaded: false
   })
 
+  // const addresses = ['http://127.0.0.1:5000', 'https://backendv2-dot-if-5070-0002.et.r.appspot.com']
+
   useEffect(() => {
-    axios.get(`https://if-5070-0002.et.r.appspot.com/data/patient-admissions-by-country`).then((response) => {
+    const addresses = ['http://127.0.0.1:5000', 'https://backendv2-dot-if-5070-0002.et.r.appspot.com']
+    axios.get(`${addresses[1]}/data/patient-admissions-by-country`).then((response) => {
       setData({
         data: response.data.data,
         DataisLoaded: true
